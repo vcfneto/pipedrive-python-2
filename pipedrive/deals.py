@@ -49,6 +49,10 @@ class Deals(object):
         }
         return self._client._post(self._client.BASE_URL + url, json=data, **kwargs)
 
+    def get_deal_flow(self, deal_id, **kwargs):
+        url = 'deals/{}/flow'.format(deal_id)
+        return self._client._get(self._client.BASE_URL + url, **kwargs)
+
     def delete_follower_to_deal(self, deal_id, follower_id, **kwargs):
         url = 'deals/{}/followers/{}'.format(deal_id, follower_id)
         return self._client._delete(self._client.BASE_URL + url, **kwargs)
